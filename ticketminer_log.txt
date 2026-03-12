@@ -1,0 +1,27 @@
+[2026-03-12T00:32:22.412168] TicketMiner System started.
+[2026-03-12T00:36:25.592365500] Error loading customers from Customer_List_PA1.csv: Customer_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:36:25.596371800] Error loading events from Event_List_PA1.csv: Event_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:36:25.597369800] Error loading venues from Venue_List_PA1.csv: Venue_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:36:25.612372100] Initial data loaded. Users=0, Events=0, Venues=0
+[2026-03-12T00:36:25.614856900] Default admin account created: username=admin
+[2026-03-12T00:36:25.614856900] TicketMiner System started.
+[2026-03-12T00:41:42.637273] Error loading customers from Customer_List_PA1.csv: Customer_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:41:42.646520900] Error loading events from Event_List_PA1.csv: Event_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:41:42.648893] Error loading venues from Venue_List_PA1.csv: Venue_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T00:41:42.648893] Initial data loaded. Users=0, Events=0, Venues=0
+[2026-03-12T00:41:42.648893] Default admin account created: username=admin
+[2026-03-12T00:41:42.648893] TicketMiner System started.
+[2026-03-12T00:42:20.338508200] Login successful for username admin
+[2026-03-12T01:13:24.084417200] Error loading customers from Customer_List_PA1.csv: Customer_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T01:13:24.084417200] Error loading events from Event_List_PA1.csv: Event_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T01:13:24.100942] Error loading venues from Venue_List_PA1.csv: Venue_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T01:13:24.105313400] Initial data loaded. Users=0, Events=0, Venues=0
+[2026-03-12T01:13:24.105313400] Default admin account created: username=admin
+[2026-03-12T01:13:24.105313400] TicketMiner System started.
+[2026-03-12T01:13:51.791961600] Login successful for username admin
+[2026-03-12T03:43:10.867219] Error loading customers from Customer_List_PA1.csv: Customer_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T03:43:10.871538500] Error loading events from Event_List_PA1.csv: Event_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T03:43:10.873723800] Error loading venues from Venue_List_PA1.csv: Venue_List_PA1.csv (El sistema no puede encontrar el archivo especificado)
+[2026-03-12T03:43:10.885762500] Initial data loaded. Users=0, Events=0, Venues=0
+[2026-03-12T03:43:10.886731900] Default admin account created: username=admin
+[2026-03-12T03:43:10.887774] TicketMiner System started.
