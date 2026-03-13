@@ -25,3 +25,52 @@
 [2026-03-12T03:43:10.885762500] Initial data loaded. Users=0, Events=0, Venues=0
 [2026-03-12T03:43:10.886731900] Default admin account created: username=admin
 [2026-03-12T03:43:10.887774] TicketMiner System started.
+[2026-03-12T22:24:31.605630] Error loading users from Customer_List_PA1.csv: Customer_List_PA1.csv (No such file or directory)
+[2026-03-12T22:24:31.608770] Error loading events from Event_List_PA1.csv: Event_List_PA1.csv (No such file or directory)
+[2026-03-12T22:24:31.608996] Error loading venues from Venue_List_PA1.csv: Venue_List_PA1.csv (No such file or directory)
+[2026-03-12T22:24:31.613068] Initial data loaded. Users=0, Events=0, Venues=0
+[2026-03-12T22:24:31.613251] Default admin account created: username=admin
+[2026-03-12T22:24:31.613333] TicketMiner System started.
+[2026-03-12T22:26:01.242455] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:26:14.248114] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:30:16.879930] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:30:16.895624] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T22:30:16.896143] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T22:30:16.900627] Initial data loaded. Users=37, Events=44, Venues=0
+[2026-03-12T22:30:16.900797] Default admin account created: username=admin
+[2026-03-12T22:30:16.900874] TicketMiner System started.
+[2026-03-12T22:30:33.999698] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:30:34.013259] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T22:30:34.013806] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T22:30:34.018168] Initial data loaded. Users=37, Events=44, Venues=0
+[2026-03-12T22:30:34.018280] Default admin account created: username=admin
+[2026-03-12T22:30:34.018353] TicketMiner System started.
+[2026-03-12T22:31:58.991183] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:31:59.007894] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T22:31:59.008353] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T22:31:59.013056] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T22:31:59.013221] Default admin account created: username=admin
+[2026-03-12T22:31:59.013300] TicketMiner System started.
+[2026-03-12T22:32:45.737663] Login failed: user not found for username adambasss
+[2026-03-12T22:32:59.344112] Login successful for username adambass
+[2026-03-12T22:50:44.795746] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:50:44.813399] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T22:50:44.813938] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T22:50:44.818346] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T22:50:44.818489] Default admin account created: username=admin
+[2026-03-12T22:50:44.818567] TicketMiner System started.
+[2026-03-12T22:51:30.662269] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T22:51:30.678192] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T22:51:30.678669] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T22:51:30.682913] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T22:51:30.683033] Default admin account created: username=admin
+[2026-03-12T22:51:30.683105] TicketMiner System started.
+[2026-03-12T22:52:15.583448] Login successful for username admin
+[2026-03-12T22:52:33.204321] Admin displayed all venues.
+[2026-03-12T22:54:39.440092] Admin added venue ID 7 of type Arena
+[2026-03-12T22:54:50.909500] Admin displayed all venues.
+[2026-03-12T22:56:09.033189] User CSV saved successfully to Updated_Customer_List_PA1.csv
+[2026-03-12T22:56:09.041347] Event CSV saved successfully to Updated_Event_List_PA1.csv
+[2026-03-12T22:56:09.046334] Venue CSV saved successfully to Updated_Venue_List_PA1.csv
+[2026-03-12T22:56:09.046558] EXIT selected. Updated CSV files were saved successfully.
+[2026-03-12T22:56:09.046656] TicketMiner System terminated.

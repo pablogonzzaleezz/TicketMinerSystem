@@ -153,5 +153,17 @@ public class UserManager {
 
         return true;
     }
+    public int getNextId() {
+    int max = 0;
+
+    for (User user : usersById.values()) {
+        if (user.getId() > max) {
+            max = user.getId();
+        }
+    }
+
+    return max + 1;
+}
     
 }
+

@@ -14,13 +14,13 @@ public abstract class Event {
     protected String name;
     protected LocalDate date;
     protected LocalTime time;
-
     protected double vipPrice;
     protected double goldPrice;
     protected double silverPrice;
 
-    public Event(int id, String name, LocalDate date, LocalTime time, double vipPrice, double goldPrice, double silverPrice){
-        this.id =id;
+    public Event(int id, String name, LocalDate date, LocalTime time,
+                 double vipPrice, double goldPrice, double silverPrice) {
+        this.id = id;
         this.name = name;
         this.date = date;
         this.time = time;
@@ -29,11 +29,11 @@ public abstract class Event {
         this.silverPrice = silverPrice;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setDate(LocalDate date, LocalTime time){
+    public void setDate(LocalDate date, LocalTime time) {
         this.date = date;
         this.time = time;
     }
@@ -41,7 +41,32 @@ public abstract class Event {
     public int getId() {
         return id;
     }
-    
 
+    public String getName() {
+        return name;
+    }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public double getVipPrice() {
+        return vipPrice;
+    }
+
+    public double getGoldPrice() {
+        return goldPrice;
+    }
+
+    public double getSilverPrice() {
+        return silverPrice;
+    }
+
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
 }

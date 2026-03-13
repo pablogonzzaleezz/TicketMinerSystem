@@ -41,6 +41,7 @@ public abstract class User {
     public String getUsername(){
         return username;
     }
+    
     /**
       * Regresa el nombre del usuario.
       * 
@@ -75,5 +76,8 @@ public abstract class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public String getPassword() {
+        return password;
+}
 
 }
