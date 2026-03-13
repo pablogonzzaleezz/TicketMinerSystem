@@ -12,10 +12,11 @@ import java.util.List;
 
 /**
  * Name: Pablo Gonzalez, Sebastian Flores
- * Date: March 12, 2026
  * Course: CS 3331 – Advanced Object-Oriented Programming
  * Instructor: Dr. Bhanukiran Gurijala
  * Project: TicketMiner – Project Part 1
+ *
+ * Main system class for the TicketMiner application.
  */
 public class TicketMinerSystem {
 
@@ -1774,6 +1775,11 @@ private int generateEventId() {
     }
 
 }
+/**
+ * Saves all users to a new CSV file.
+ *
+ * @param fileName output CSV file name
+ */
 private void saveUsersToCSV(String fileName) {
     try (PrintWriter pw = new PrintWriter(fileName)) {
 
@@ -1819,6 +1825,11 @@ private void saveUsersToCSV(String fileName) {
         logger.log("Error saving users CSV to " + fileName + ": " + e.getMessage());
     }
 }
+/**
+ * Saves all events to a new CSV file.
+ *
+ * @param fileName output CSV file name
+ */
 private void saveEventsToCSV(String fileName) {
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
     DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a", java.util.Locale.ENGLISH);
@@ -1847,8 +1858,12 @@ private void saveEventsToCSV(String fileName) {
         logger.log("Error saving events CSV to " + fileName + ": " + e.getMessage());
     }
 }
-private void saveVenuesToCSV(String fileName) {
-    try (PrintWriter pw = new PrintWriter(fileName)) {
+/**
+ * Saves all venues to a new CSV file.
+ *
+ * @param fileName output CSV file name
+ */
+private void saveVenuesToCSV(String fileName) {    try (PrintWriter pw = new PrintWriter(fileName)) {
         pw.println("ID,Name,Type,Capacity,Concert Capacity,Cost,VIP Percent");
 
         Collection<Venue> venues = venueManager.getAllVenues();

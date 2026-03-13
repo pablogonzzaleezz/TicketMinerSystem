@@ -5,15 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Name: Pablo Gonzalez, Sebastian Flores
- * Course: CS 3331 – Advanced Object-Oriented Programming
- * Instructor: Dr. Bhanukiran Gurijala
- * Project: TicketMiner – Project Part 1
+ * CS 3331 – Advanced Object-Oriented Programming
+ * Project Part 1 – TicketMiner
+ *
+ * Manages all events in the system using a HashMap.
  */
 public class EventManager {
 
     private HashMap<Integer, Event> eventsById;
 
+    /**
+     * Creates an empty event manager.
+     */
     public EventManager() {
         eventsById = new HashMap<>();
     }
@@ -111,27 +114,38 @@ public class EventManager {
         return eventsById.size();
     }
 
+    /**
+     * Returns the next available event ID.
+     *
+     * @return next event ID
+     */
     public int getNextId() {
-    int max = 0;
+        int max = 0;
 
-    for (Event event : eventsById.values()) {
-        if (event.getId() > max) {
-            max = event.getId();
+        for (Event event : eventsById.values()) {
+            if (event.getId() > max) {
+                max = event.getId();
+            }
         }
+
+        return max + 1;
     }
 
-    return max + 1;
-}
+    /**
+     * Finds all events scheduled on a given date.
+     *
+     * @param date the event date
+     * @return a list of matching events
+     */
+    public List<Event> findAllByDate(LocalDate date) {
+        List<Event> matches = new ArrayList<>();
 
-public List<Event> findAllByDate(LocalDate date) {
-    List<Event> matches = new ArrayList<>();
-
-    for (Event event : eventsById.values()) {
-        if (event.getDate().equals(date)) {
-            matches.add(event);
+        for (Event event : eventsById.values()) {
+            if (event.getDate().equals(date)) {
+                matches.add(event);
+            }
         }
-    }
 
-    return matches;
-}
+        return matches;
+    }
 }

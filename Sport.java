@@ -1,13 +1,24 @@
 /**
- * Name: Pablo Gonzalez, Sebastian Flores
- * Course: CS 3331 – Advanced Object-Oriented Programming
- * Instructor: Dr. Bhanukiran Gurijala
- * Project: TicketMiner – Project Part 1
+ * CS 3331 – Advanced Object-Oriented Programming
+ * Project Part 1 – TicketMiner
+ *
+ * Represents a Sport event in the TicketMiner system.
  */
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Creates a new Sport event.
+ *
+ * @param id event ID
+ * @param name event name
+ * @param date event date
+ * @param time event time
+ * @param vipPrice VIP ticket price
+ * @param goldPrice Gold ticket price
+ * @param silverPrice Silver ticket price
+ */
 public class Sport extends Event{
 
     public Sport(int id, String name, LocalDate date, LocalTime time, double vipPrice, double goldPrice, double silverPrice){

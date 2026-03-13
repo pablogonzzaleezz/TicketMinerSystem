@@ -1,26 +1,32 @@
 import java.util.HashMap;
 import java.util.Collection;
 
-
 /**
- * Name: Pablo Gonzalez, Sebastian Flores
- * Course: CS 3331 – Advanced Object-Oriented Programming
- * Instructor: Dr. Bhanukiran Gurijala
- * Project: TicketMiner – Project Part 1
+ * CS 3331 – Advanced Object-Oriented Programming
+ * Project Part 1 – TicketMiner
+ *
+ * Manages all users in the system using HashMaps.
  */
-
 public class UserManager {
 
     private HashMap<Integer, User> usersById;
     private HashMap<String, User> usersByUsername;
 
+    /**
+     * Creates an empty user manager.
+     */
     public UserManager() {
         usersById = new HashMap<>();
         usersByUsername = new HashMap<>();
     }
 
-        /** this adds a user if the username is unique and returns true if added, false otherwise. */
-   public boolean addUser(User user) {
+    /**
+     * Adds a user if the username is unique.
+     *
+     * @param user the user to add
+     * @return true if the user was added, false otherwise
+     */
+    public boolean addUser(User user) {
         if (user == null) {
             return false;
         }
@@ -31,7 +37,7 @@ public class UserManager {
         }
 
         if (usersByUsername.containsKey(uname)) {
-            return false; // username already exists
+            return false;
         }
 
         usersById.put(user.getId(), user);
@@ -39,10 +45,22 @@ public class UserManager {
         return true;
     }
 
+    /**
+     * Finds a user by ID.
+     *
+     * @param id user ID
+     * @return the matching user, or null if not found
+     */
     public User findById(int id) {
         return usersById.get(id);
     }
 
+    /**
+     * Finds a user by username.
+     *
+     * @param username username to search
+     * @return the matching user, or null if not found
+     */
     public User findByUsername(String username) {
         if (username == null) {
             return null;
@@ -50,6 +68,12 @@ public class UserManager {
         return usersByUsername.get(username);
     }
 
+    /**
+     * Checks whether a username is unique.
+     *
+     * @param username username to check
+     * @return true if the username is available
+     */
     public boolean isUsernameUnique(String username) {
         if (username == null)  {
             return false;
@@ -57,30 +81,30 @@ public class UserManager {
         return !usersByUsername.containsKey(username);
     }
 
+    /**
+     * Returns the number of users in the system.
+     *
+     * @return total number of users
+     */
     public int size() {
         return usersById.size();
     }
+
     /**
-    * Regresa una colección con todos los usuarios almacenados.
-    * 
-    * Este método permite recorrer todos los usuarios del sistema
-    * para mostrarlos o procesarlos.
-    * 
-    * @return colección de usuarios
-    */
+     * Returns all users stored in the system.
+     *
+     * @return collection of users
+     */
     public Collection<User> getAllUsers() {
         return usersById.values();
     }
 
     /**
-      * Elimina un usuario a partir de su ID.
-      * 
-      * Si el usuario existe, también se elimina de la estructura
-      * que organiza por username.
-      * 
-      * @param id identificador del usuario
-      * @return true si el usuario fue eliminado, false en caso contrario
-      */
+     * Deletes a user by ID.
+     *
+     * @param id user ID
+     * @return true if the user was removed, false otherwise
+     */
     public boolean deleteUserById(int id) {
         User removedUser = usersById.remove(id);
 
@@ -91,14 +115,13 @@ public class UserManager {
         usersByUsername.remove(removedUser.getUsername());
         return true;
     }
-   /**
-     * Busca un usuario por nombre completo.
-     * 
-     * La búsqueda compara first name y last name ignorando mayúsculas y minúsculas.
-     * 
-     * @param firstName nombre del usuario
-     * @param lastName apellido del usuario
-     * @return usuario encontrado o null si no existe
+
+    /**
+     * Finds a user by first name and last name.
+     *
+     * @param firstName user's first name
+     * @param lastName user's last name
+     * @return the matching user, or null if not found
      */
     public User findByName(String firstName, String lastName) {
         for (User user : usersById.values()) {
@@ -111,11 +134,11 @@ public class UserManager {
     }
 
     /**
-      * Elimina un usuario del sistema usando el objeto User.
-      * 
-      * @param user usuario a eliminar
-      * @return true si se eliminó correctamente, false en caso contrario
-      */
+     * Deletes a user from the system.
+     *
+     * @param user user to delete
+     * @return true if removed successfully, false otherwise
+     */
     public boolean deleteUser(User user) {
         if (user == null) {
             return false;
@@ -125,16 +148,13 @@ public class UserManager {
         usersByUsername.remove(user.getUsername());
         return true;
     }
+
     /**
-     * Actualiza el username de un usuario y sincroniza la estructura
-     * de búsqueda por username.
-     * 
-     * El cambio solo se realiza si el usuario existe y el nuevo username
-     * no está siendo utilizado por otro miembro.
-     * 
-     * @param user usuario al que se le cambiará el username
-     * @param newUsername nuevo username
-     * @return true si el cambio se realizó, false en caso contrario
+     * Updates a user's username if the new username is unique.
+     *
+     * @param user user to update
+     * @param newUsername new username
+     * @return true if updated successfully, false otherwise
      */
     public boolean updateUsername(User user, String newUsername) {
         if (user == null || newUsername == null || newUsername.trim().isEmpty()) {
@@ -153,17 +173,21 @@ public class UserManager {
 
         return true;
     }
+
+    /**
+     * Returns the next available user ID.
+     *
+     * @return next user ID
+     */
     public int getNextId() {
-    int max = 0;
+        int max = 0;
 
-    for (User user : usersById.values()) {
-        if (user.getId() > max) {
-            max = user.getId();
+        for (User user : usersById.values()) {
+            if (user.getId() > max) {
+                max = user.getId();
+            }
         }
+
+        return max + 1;
     }
-
-    return max + 1;
 }
-    
-}
-
