@@ -74,3 +74,46 @@
 [2026-03-12T22:56:09.046334] Venue CSV saved successfully to Updated_Venue_List_PA1.csv
 [2026-03-12T22:56:09.046558] EXIT selected. Updated CSV files were saved successfully.
 [2026-03-12T22:56:09.046656] TicketMiner System terminated.
+[2026-03-12T23:06:47.457138] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T23:06:47.473154] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T23:06:47.473615] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T23:06:47.477889] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T23:06:47.478012] Default admin account created: username=admin
+[2026-03-12T23:06:47.478089] TicketMiner System started.
+[2026-03-12T23:07:41.527082] Login successful for username admin
+[2026-03-12T23:08:05.261577] Admin searched and found venue ID 1
+[2026-03-12T23:08:53.158434] Admin searched venue but none was found.
+[2026-03-12T23:09:23.933076] Admin searched and found venue ID 1
+[2026-03-12T23:09:53.203925] Admin searched and found venue ID 1
+[2026-03-12T23:14:16.473557] Admin updated name for venue ID 1
+[2026-03-12T23:14:25.987891] Admin searched and found venue ID 1
+[2026-03-12T23:15:28.357548] Admin deleted venue ID 1
+[2026-03-12T23:15:32.041053] Admin displayed all venues.
+[2026-03-12T23:17:35.530418] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T23:17:35.547142] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T23:17:35.547613] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T23:17:35.552221] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T23:17:35.552375] Default admin account created: username=admin
+[2026-03-12T23:17:35.552452] TicketMiner System started.
+[2026-03-12T23:17:47.426644] Login successful for username admin
+[2026-03-12T23:19:29.538271] Admin updated password for user ID 9999
+[2026-03-12T23:20:41.105870] Admin updated username for user ID 9999 to admintest
+[2026-03-12T23:23:42.759302] Admin added Customer with username admintest_2
+[2026-03-12T23:24:46.718281] Admin searched and found event ID 1
+[2026-03-12T23:25:18.946551] Admin searched and found event ID 1
+[2026-03-12T23:26:20.447159] Admin searched and found event ID 1
+[2026-03-12T23:26:49.706126] Admin displayed all events.
+[2026-03-12T23:28:24.304520] Admin added event ID 45 of type Concert
+[2026-03-12T23:28:36.906985] Admin searched and found event ID 45
+[2026-03-12T23:29:48.106745] Admin updated name for event ID 44
+[2026-03-12T23:30:10.184123] Admin searched and found event ID 44
+[2026-03-12T23:43:26.373039] Users loaded successfully from Customer_List_PA1.csv
+[2026-03-12T23:43:26.388973] Events loaded successfully from Event_List_PA1.csv
+[2026-03-12T23:43:26.389461] Venues loaded successfully from Venue_List_PA1.csv
+[2026-03-12T23:43:26.393957] Initial data loaded. Users=37, Events=44, Venues=6
+[2026-03-12T23:43:26.394135] Default admin account created: username=admin
+[2026-03-12T23:43:26.394220] TicketMiner System started.
+[2026-03-12T23:43:34.152042] Login successful for username admin
+[2026-03-12T23:44:05.736700] Admin added event ID 45 of type Concert
+[2026-03-12T23:45:08.782135] Admin updated event date/time for ID 45
+[2026-03-12T23:45:27.540635] Admin searched and found event ID 45

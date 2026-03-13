@@ -1,6 +1,9 @@
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Name: Pablo Gonzalez, Sebastian Flores
  * Course: CS 3331 – Advanced Object-Oriented Programming
@@ -118,5 +121,17 @@ public class EventManager {
     }
 
     return max + 1;
+}
+
+public List<Event> findAllByDate(LocalDate date) {
+    List<Event> matches = new ArrayList<>();
+
+    for (Event event : eventsById.values()) {
+        if (event.getDate().equals(date)) {
+            matches.add(event);
+        }
+    }
+
+    return matches;
 }
 }

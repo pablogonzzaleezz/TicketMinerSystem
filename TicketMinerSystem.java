@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.io.PrintWriter;
 import java.util.Locale;
+import java.util.List;
 
 /**
  * Name: Pablo Gonzalez, Sebastian Flores
@@ -1459,37 +1460,26 @@ private int generateEventId() {
      * Searches for an event as admin.
      */
     private void adminSearchEvent() {
-        System.out.println("\n========== SEARCH EVENT ==========");
-        System.out.println("Search event by:");
-        System.out.println("1) ID");
-        System.out.println("2) Name");
-        System.out.println("3) Date");
+    System.out.println("\n========== SEARCH EVENT ==========");
+    System.out.println("Search event by:");
+    System.out.println("1) ID");
+    System.out.println("2) Name");
+    System.out.println("3) Date");
 
-        System.out.print("\nSelect an option: ");
-        String choice = myScanner.nextLine().trim();
+    System.out.print("\nSelect an option: ");
+    String choice = myScanner.nextLine().trim();
 
-        Event event = null;
+    Event event = null;
 
-        if (choice.equals("1")) {
-            System.out.print("\nEnter event ID: ");
-            int id = readIntSafe();
-            event = eventManager.findById(id);
-        } else if (choice.equals("2")) {
-            System.out.print("\nEnter event name: ");
-            String name = myScanner.nextLine().trim();
-            event = eventManager.findByName(name);
-        } else if (choice.equals("3")) {
-            System.out.print("\nEnter event date (M/d/yyyy): ");
-            LocalDate date = readDateSafe();
-            event = eventManager.findByDate(date);
-        } else {
-            System.out.println("\nInvalid option.");
-            return;
-        }
+    if (choice.equals("1")) {
+
+        System.out.print("\nEnter event ID: ");
+        int id = readIntSafe();
+        event = eventManager.findById(id);
 
         if (event == null) {
             System.out.println("\nEvent not found.");
-            logger.log("Admin searched event but none was found.");
+            logger.log("Admin searched event by ID but none was found.");
             return;
         }
 
@@ -1506,40 +1496,15 @@ private int generateEventId() {
         logger.log("Admin searched and found event ID " + event.getId());
     }
 
-    /**
-     * Updates an event as admin.
-     */
-    private void adminUpdateEvent() {
-        System.out.println("\n========== UPDATE EVENT ==========");
-        System.out.println("Search event by:");
-        System.out.println("1) ID");
-        System.out.println("2) Name");
-        System.out.println("3) Date");
+    else if (choice.equals("2")) {
 
-        System.out.print("\nSelect an option: ");
-        String choice = myScanner.nextLine().trim();
-
-        Event event = null;
-
-        if (choice.equals("1")) {
-            System.out.print("\nEnter event ID: ");
-            int id = readIntSafe();
-            event = eventManager.findById(id);
-        } else if (choice.equals("2")) {
-            System.out.print("\nEnter event name: ");
-            String name = myScanner.nextLine().trim();
-            event = eventManager.findByName(name);
-        } else if (choice.equals("3")) {
-            System.out.print("\nEnter event date (M/d/yyyy): ");
-            LocalDate date = readDateSafe();
-            event = eventManager.findByDate(date);
-        } else {
-            System.out.println("\nInvalid option.");
-            return;
-        }
+        System.out.print("\nEnter event name: ");
+        String name = myScanner.nextLine().trim();
+        event = eventManager.findByName(name);
 
         if (event == null) {
             System.out.println("\nEvent not found.");
+            logger.log("Admin searched event by name but none was found.");
             return;
         }
 
@@ -1547,97 +1512,268 @@ private int generateEventId() {
         System.out.println("ID: " + event.getId());
         System.out.println("Name: " + event.getName());
         System.out.println("Type: " + event.getType());
+        System.out.println("Date: " + event.getDate());
+        System.out.println("Time: " + event.getTime());
+        System.out.println("VIP Price: " + event.getVipPrice());
+        System.out.println("Gold Price: " + event.getGoldPrice());
+        System.out.println("Silver Price: " + event.getSilverPrice());
 
-        System.out.println("\nWhat would you like to update?");
-        System.out.println("1) Change Name");
-        System.out.println("2) Change Date and Time");
-
-        System.out.print("\nSelect an option: ");
-        String updateChoice = myScanner.nextLine().trim();
-
-        if (updateChoice.equals("1")) {
-            System.out.print("\nEnter new event name: ");
-            String newName = myScanner.nextLine().trim();
-            event.setName(newName);
-
-            System.out.println("\nEvent name updated successfully.");
-            logger.log("Admin updated name for event ID " + event.getId());
-
-        } else if (updateChoice.equals("2")) {
-            System.out.print("\nEnter new date (M/d/yyyy): ");
-            LocalDate newDate = readDateSafe();
-
-            System.out.print("\nEnter new time (h:mm AM/PM): ");
-            LocalTime newTime = readTimeSafe();
-
-            event.setDate(newDate, newTime);
-
-            System.out.println("\nEvent date and time updated successfully.");
-            logger.log("Admin updated date/time for event ID " + event.getId());
-
-        } else {
-            System.out.println("\nInvalid option.");
-        }
+        logger.log("Admin searched and found event ID " + event.getId());
     }
+
+    else if (choice.equals("3")) {
+
+        System.out.print("\nEnter event date (M/d/yyyy): ");
+        LocalDate date = readDateSafe();
+
+        List<Event> events = eventManager.findAllByDate(date);
+
+        if (events.isEmpty()) {
+            System.out.println("\nEvent not found.");
+            logger.log("Admin searched events by date but none were found.");
+            return;
+        }
+
+        System.out.println("\n========== EVENTS FOUND ==========");
+
+        for (Event e : events) {
+            System.out.println("\n---------------------------------");
+            System.out.println("ID: " + e.getId());
+            System.out.println("Name: " + e.getName());
+            System.out.println("Type: " + e.getType());
+            System.out.println("Date: " + e.getDate());
+            System.out.println("Time: " + e.getTime());
+            System.out.println("VIP Price: " + e.getVipPrice());
+            System.out.println("Gold Price: " + e.getGoldPrice());
+            System.out.println("Silver Price: " + e.getSilverPrice());
+        }
+
+        logger.log("Admin searched events by date " + date + " and found " + events.size() + " event(s).");
+    }
+
+    else {
+        System.out.println("\nInvalid option.");
+    }
+}
+
+    /**
+     * Updates an event as admin.
+     */
+    private void adminUpdateEvent() {
+
+    System.out.println("\n========== UPDATE EVENT ==========");
+    System.out.println("Search event by:");
+    System.out.println("1) ID");
+    System.out.println("2) Name");
+    System.out.println("3) Date");
+
+    System.out.print("\nSelect an option: ");
+    String choice = myScanner.nextLine().trim();
+
+    Event event = null;
+
+    if (choice.equals("1")) {
+
+        System.out.print("\nEnter event ID: ");
+        int id = readIntSafe();
+        event = eventManager.findById(id);
+
+    } else if (choice.equals("2")) {
+
+        System.out.print("\nEnter event name: ");
+        String name = myScanner.nextLine().trim();
+        event = eventManager.findByName(name);
+
+    } else if (choice.equals("3")) {
+
+        System.out.print("\nEnter event date (M/d/yyyy): ");
+        LocalDate date = readDateSafe();
+
+        List<Event> events = eventManager.findAllByDate(date);
+
+        if (events.isEmpty()) {
+            System.out.println("\nEvent not found.");
+            logger.log("Admin searched events by date but none were found.");
+            return;
+        }
+
+        System.out.println("\n========== EVENTS FOUND ==========");
+
+        for (Event e : events) {
+            System.out.println("\n---------------------------------");
+            System.out.println("ID: " + e.getId());
+            System.out.println("Name: " + e.getName());
+            System.out.println("Type: " + e.getType());
+            System.out.println("Date: " + e.getDate());
+            System.out.println("Time: " + e.getTime());
+        }
+
+        System.out.print("\nEnter the ID of the event you want to update: ");
+        int selectedId = readIntSafe();
+
+        event = eventManager.findById(selectedId);
+
+        if (event == null || !event.getDate().equals(date)) {
+            System.out.println("\nInvalid event ID.");
+            return;
+        }
+
+    } else {
+        System.out.println("\nInvalid option.");
+        return;
+    }
+
+    if (event == null) {
+        System.out.println("\nEvent not found.");
+        logger.log("Admin attempted to update event but none was found.");
+        return;
+    }
+
+    System.out.println("\n========== EVENT FOUND ==========");
+    System.out.println("ID: " + event.getId());
+    System.out.println("Name: " + event.getName());
+    System.out.println("Type: " + event.getType());
+
+    System.out.println("\nWhat would you like to update?");
+    System.out.println("1) Change Name");
+    System.out.println("2) Change Date and Time");
+
+    System.out.print("\nSelect an option: ");
+    String updateChoice = myScanner.nextLine().trim();
+
+    if (updateChoice.equals("1")) {
+
+        System.out.print("\nEnter new event name: ");
+        String newName = myScanner.nextLine().trim();
+
+        event.setName(newName);
+
+        System.out.println("\nEvent name updated successfully.");
+        logger.log("Admin updated event name for ID " + event.getId());
+
+    } else if (updateChoice.equals("2")) {
+
+        System.out.print("\nEnter new date (M/d/yyyy): ");
+        LocalDate newDate = readDateSafe();
+
+        System.out.print("\nEnter new time (h:mm AM/PM): ");
+        LocalTime newTime = readTimeSafe();
+
+        event.setDate(newDate, newTime);
+
+        System.out.println("\nEvent date and time updated successfully.");
+        logger.log("Admin updated event date/time for ID " + event.getId());
+
+    } else {
+
+        System.out.println("\nInvalid option.");
+    }
+}
 
     /**
      * Deletes an event as admin.
      */
     private void adminDeleteEvent() {
-        System.out.println("\n========== DELETE EVENT ==========");
-        System.out.println("Search event by:");
-        System.out.println("1) ID");
-        System.out.println("2) Name");
-        System.out.println("3) Date");
 
-        System.out.print("\nSelect an option: ");
-        String choice = myScanner.nextLine().trim();
+    System.out.println("\n========== DELETE EVENT ==========");
+    System.out.println("Search event by:");
+    System.out.println("1) ID");
+    System.out.println("2) Name");
+    System.out.println("3) Date");
 
-        Event event = null;
+    System.out.print("\nSelect an option: ");
+    String choice = myScanner.nextLine().trim();
 
-        if (choice.equals("1")) {
-            System.out.print("\nEnter event ID: ");
-            int id = readIntSafe();
-            event = eventManager.findById(id);
-        } else if (choice.equals("2")) {
-            System.out.print("\nEnter event name: ");
-            String name = myScanner.nextLine().trim();
-            event = eventManager.findByName(name);
-        } else if (choice.equals("3")) {
-            System.out.print("\nEnter event date (M/d/yyyy): ");
-            LocalDate date = readDateSafe();
-            event = eventManager.findByDate(date);
-        } else {
-            System.out.println("\nInvalid option.");
-            return;
-        }
+    Event event = null;
 
-        if (event == null) {
-            System.out.println("\nEvent not found.");
-            return;
-        }
+    if (choice.equals("1")) {
 
-        System.out.println("\n========== EVENT FOUND ==========");
-        System.out.println("ID: " + event.getId());
-        System.out.println("Name: " + event.getName());
-        System.out.println("Type: " + event.getType());
+        System.out.print("\nEnter event ID: ");
+        int id = readIntSafe();
+        event = eventManager.findById(id);
 
-        System.out.print("\nAre you sure you want to delete this event? (yes/no): ");
-        String confirm = myScanner.nextLine().trim();
-
-        if (confirm.equalsIgnoreCase("yes") || confirm.equalsIgnoreCase("y")) {
-            boolean deleted = eventManager.deleteEvent(event);
-
-            if (deleted) {
-                System.out.println("\nEvent deleted successfully.");
-                logger.log("Admin deleted event ID " + event.getId());
-            } else {
-                System.out.println("\nFailed to delete event.");
-            }
-        } else {
-            System.out.println("\nDeletion cancelled.");
-        }
     }
+
+    else if (choice.equals("2")) {
+
+        System.out.print("\nEnter event name: ");
+        String name = myScanner.nextLine().trim();
+        event = eventManager.findByName(name);
+
+    }
+
+    else if (choice.equals("3")) {
+
+        System.out.print("\nEnter event date (M/d/yyyy): ");
+        LocalDate date = readDateSafe();
+
+        List<Event> events = eventManager.findAllByDate(date);
+
+        if (events.isEmpty()) {
+            System.out.println("\nEvent not found.");
+            logger.log("Admin searched events by date but none were found.");
+            return;
+        }
+
+        System.out.println("\n========== EVENTS FOUND ==========");
+
+        for (Event e : events) {
+            System.out.println("\n---------------------------------");
+            System.out.println("ID: " + e.getId());
+            System.out.println("Name: " + e.getName());
+            System.out.println("Type: " + e.getType());
+            System.out.println("Date: " + e.getDate());
+            System.out.println("Time: " + e.getTime());
+        }
+
+        System.out.print("\nEnter the ID of the event you want to delete: ");
+        int selectedId = readIntSafe();
+
+        event = eventManager.findById(selectedId);
+
+        if (event == null || !event.getDate().equals(date)) {
+            System.out.println("\nInvalid event ID.");
+            return;
+        }
+
+    }
+
+    else {
+        System.out.println("\nInvalid option.");
+        return;
+    }
+
+    if (event == null) {
+        System.out.println("\nEvent not found.");
+        return;
+    }
+
+    System.out.println("\n========== EVENT FOUND ==========");
+    System.out.println("ID: " + event.getId());
+    System.out.println("Name: " + event.getName());
+    System.out.println("Type: " + event.getType());
+
+    System.out.print("\nAre you sure you want to delete this event? (yes/no): ");
+    String confirm = myScanner.nextLine().trim();
+
+    if (confirm.equalsIgnoreCase("yes") || confirm.equalsIgnoreCase("y")) {
+
+        boolean deleted = eventManager.deleteEvent(event);
+
+        if (deleted) {
+            System.out.println("\nEvent deleted successfully.");
+            logger.log("Admin deleted event ID " + event.getId());
+        } else {
+            System.out.println("\nFailed to delete event.");
+        }
+
+    } else {
+
+        System.out.println("\nDeletion cancelled.");
+
+    }
+
+}
 private void saveUsersToCSV(String fileName) {
     try (PrintWriter pw = new PrintWriter(fileName)) {
 
